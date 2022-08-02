@@ -1,20 +1,3 @@
-Requesting challenge...
-Rumor has it the bunny trainers are inexplicably fond of bananas. You're an apple person yourself, but you file the information away for future reference. You never know when you might need to bribe a trainer (or three)...
-New challenge "Ion Flux Relabeling" added to your home folder.
-Time to solve: 168 hours.
-foobar:~/ sblahut111$ ls
-ion-flux-relabeling
-journal.txt
-start_here.txt
-foobar:~/ sblahut111$ cat ion-flux-relabeling/
-cat: ion-flux-relabeling/: Is a directory
-foobar:~/ sblahut111$ cd ion-flux-relabeling/
-foobar:~/ion-flux-relabeling sblahut111$ ls
-Solution.java
-constraints.txt
-readme.txt
-solution.py
-foobar:~/ion-flux-relabeling sblahut111$ cat readme.txt 
 Ion Flux Relabeling
 ===================
 
