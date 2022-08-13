@@ -1,59 +1,49 @@
-Don't Get Volunteered!
-======================
+Ion Flux Relabeling
+===================
 
-As a henchman on Commander Lambda's space station, you're expected to be resourceful, smart, and a quick thinker. It's not easy building a doomsday device and ordering the bunnies around at the same time, after all! In order to make sure that everyone is sufficiently quick-witted, Commander Lambda has installed new flooring outside the henchman dormitories. It looks like a chessboard, and every morning and evening you have to solve a new movement puzzle in order to cross the floor. That would be fine if you got to be the rook or the queen, but instead, you have to be the knight. Worse, if you take too much time solving the puzzle, you get "volunteered" as a test subject for the LAMBCHOP doomsday device!
+Oh no! Commander Lambda's latest experiment to improve the efficiency of the LAMBCHOP doomsday device has backfired spectacularly. The Commander had been improving the structure of the ion flux converter tree, but something went terribly wrong and the flux chains exploded. Some of the ion flux converters survived the explosion intact, but others had their position labels blasted off. Commander Lambda is having her henchmen rebuild the ion flux converter tree by hand, but you think you can do it much more quickly -- quickly enough, perhaps, to earn a promotion!
 
-To help yourself get to and from your bunk every day, write a function called solution(src, dest) which takes in two parameters: the source square, on which you start, and the destination square, which is where you need to land to solve the puzzle.  The function should return an integer representing the smallest number of moves it will take for you to travel from the source square to the destination square using a chess knight's moves (that is, two squares in any direction immediately followed by one square perpendicular to that direction, or vice versa, in an "L" shape).  Both the source and destination squares will be an integer between 0 and 63, inclusive, and are numbered like the example chessboard below:
+Flux chains require perfect binary trees, so Lambda's design arranged the ion flux converters to form one. To label them, Lambda performed a post-order traversal of the tree of converters and labeled each converter with the order of that converter in the traversal, starting at 1. For example, a tree of 7 converters would look like the following:
 
--------------------------
-| 0| 1| 2| 3| 4| 5| 6| 7|
--------------------------
-| 8| 9|10|11|12|13|14|15|
--------------------------
-|16|17|18|19|20|21|22|23|
--------------------------
-|24|25|26|27|28|29|30|31|
--------------------------
-|32|33|34|35|36|37|38|39|
--------------------------
-|40|41|42|43|44|45|46|47|
--------------------------
-|48|49|50|51|52|53|54|55|
--------------------------
-|56|57|58|59|60|61|62|63|
--------------------------
+   7
+ 3   6
+1 2 4 5
+
+Write a function solution(h, q) - where h is the height of the perfect tree of converters and q is a list of positive integers representing different flux converters - which returns a list of integers p where each element in p is the label of the converter that sits on top of the respective converter in q, or -1 if there is no such converter.  For example, solution(3, [1, 4, 7]) would return the converters above the converters at indexes 1, 4, and 7 in a perfect binary tree of height 3, which is [3, 6, -1].
+
+The domain of the integer h is 1 <= h <= 30, where h = 1 represents a perfect binary tree containing only the root, h = 2 represents a perfect binary tree with the root and two leaf nodes, h = 3 represents a perfect binary tree with the root, two internal nodes and four leaf nodes (like the example above), and so forth.  The lists q and p contain at least one but no more than 10000 distinct integers, all of which will be between 1 and 2^h-1, inclusive.
 
 Languages
 =========
 
-To provide a Python solution, edit solution.py
 To provide a Java solution, edit Solution.java
+To provide a Python solution, edit solution.py
 
 Test cases
 ==========
 Your code should pass the following test cases.
 Note that it may also be run against hidden test cases not shown here.
 
--- Python cases --
-Input:
-solution.solution(0, 1)
-Output:
-    3
-
-Input:
-solution.solution(19, 36)
-Output:
-    1
-
 -- Java cases --
 Input:
-Solution.solution(19, 36)
+Solution.solution(5, {19, 14, 28})
 Output:
-    1
+    21,15,29
 
 Input:
-Solution.solution(0, 1)
+Solution.solution(3, {7, 3, 5, 1})
 Output:
-    3
+    -1,7,6,3
+
+-- Python cases --
+Input:
+solution.solution(3, [7, 3, 5, 1])
+Output:
+    -1,7,6,3
+
+Input:
+solution.solution(5, [19, 14, 28])
+Output:
+    21,15,29
 
 Use verify [file] to test your solution and see how it does. When you are finished editing your code, use submit [file] to submit your answer. If your solution passes the test cases, it will be removed from your home folder.
