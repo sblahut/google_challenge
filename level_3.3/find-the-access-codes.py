@@ -18,7 +18,7 @@
 #### % operator appears to be too expensive at O(n^3)
 ####    more reaserch on something lower
 
-def solution(ar):
+def solution(l):
     c = [0] * len(l)
     count = 0
     for i in range(0,len(l)):
