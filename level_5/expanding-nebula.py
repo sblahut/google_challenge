@@ -18,7 +18,6 @@
 ####    Note: 1 fewer row and column due to bottom and rightmost cells not having 
 ####       them, respectively.
 ####
-####
 import itertools
 
 def solution(g):
